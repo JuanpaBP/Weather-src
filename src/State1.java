@@ -52,7 +52,9 @@ public class State1{
         this.capital = capital;
     }
 
-    public State1(int cID, String cName, String cAlpha2, String cAlpha3, int wTemp, int wMaxTemp, int wMinTemp, String wDesc, int wWSpe, String wWDir, String wAHum, String wAPress, String wAVisibility, String sName, String sAbbr, String sArea, String sLargest_city, String sCapital) {
+    public State1(int cID, String cName, String cAlpha2, String cAlpha3, int wTemp, int wMaxTemp, int wMinTemp,
+                  String wDesc, int wWSpe, String wWDir, String wAHum, String wAPress, String wAVisibility,
+                  String sName, String sAbbr, String sArea, String sLargest_city, String sCapital) {
         this.X = new Country1(cID, cName, cAlpha2, cAlpha3);
         this.Today = new Weather(wTemp, wMaxTemp, wMinTemp, wDesc, wWSpe, wWDir, wAHum, wAPress, wAVisibility);
         this._10Days = new Weather(wMaxTemp, wMinTemp, wDesc);
@@ -64,6 +66,7 @@ public class State1{
     }
 
     public String toString() {
-        return this.X.toString() + "\n" + this.Today.toString() + "Name: " + this.name + "\nAbbr: " + this.abbr + "\nLargest City: " + this.largest_city + "\nCapital: " + this.capital;
+        return this.X.toString() + "\n" +"Name: " + this.name + "\nShort: " + this.abbr + "\nLargest City: " +
+                this.largest_city + "\nCapital: " + "\n" + this.capital+ this.Today.toString();
     }
 }

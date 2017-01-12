@@ -40,7 +40,8 @@ public class Country1 {
         }
 
         public String toString() {
-            return "Country ID: " + Integer.toString(this.id_country) + "Name: " + this.name + "\nAlpha2: " + this.alpha2 + "\nAlpha3: " + this.alpha3;
+            return "Country ID: " + Integer.toString(this.id_country) + "\nName: " + this.name + "\nShort2: " +
+                    this.alpha2 + "\nShort3: " + this.alpha3;
         }
 
 }
