@@ -19,7 +19,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        /*Date today = new Date();
+        Date today = new Date();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Por favor ingrese el ID del pais");
         int cID = Integer.parseInt(br.readLine());
@@ -62,14 +62,14 @@ public class Main {
 
         new Weather(wMaxTemp, wMinTemp, wDesc);
 
-        System.out.println(N.toString());*/
+        System.out.println(N.toString());
 
-        /*Calendar cal = Calendar.getInstance();
+        Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         cal.set(Calendar.HOUR, cal.get(Calendar.HOUR)+10);
 
 
-        /*List<Weather> we = new ArrayList<>();       //Lista genérica
+        List<Weather> we = new ArrayList<>();       //Lista genérica
 
 
         for(int i = 0; i < 10; ++i) {
@@ -85,10 +85,10 @@ public class Main {
             }
             we.add(weather);
         }
-        /*for(Weather w:we){
+        for(Weather w:we){
             System.out.println(w.toString());
         }
-        System.out.println(we.size());*/
+        System.out.println(we.size());
         DB_Connect db = new DB_Connect();
         db.TryConn();
 
