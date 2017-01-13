@@ -108,5 +108,9 @@ public class Weather {
     public String toString() {
         return "Temperature: " + this.temperature + "\nMin and Max: " + this.minTemperature + " " + this.maxTemperature + "\nDescription: " + this.description + "\nWind Speed: " + this.wSpeed + "\nWind Direction: " + this.wDirection + "\nHumidity: " + this.aHumidity + "\nAtmospheric Pressure: " + this.aPressure + "\nVisibility: " + this.aVisibility;
     }
+
+    public String shortToString(){
+        return "Max: " + this.maxTemperature + "\nMin: " + this.minTemperature + "\nSummary: " + this.description;
+    }
 }
 
