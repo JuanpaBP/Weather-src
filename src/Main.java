@@ -62,12 +62,12 @@ public class Main {
 
         new Weather(wMaxTemp, wMinTemp, wDesc);
 
-        System.out.println(N.toString());
+        System.out.println(N.toString());*/
 
         /*Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         cal.set(Calendar.HOUR, cal.get(Calendar.HOUR)+10);
-        */
+
 
         /*List<Weather> we = new ArrayList<>();       //Lista genérica
 
