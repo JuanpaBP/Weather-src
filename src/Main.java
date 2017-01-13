@@ -5,14 +5,21 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
     public Main() {
     }
 
     public static void main(String[] args) throws IOException {
-        Date today = new Date();
+
+        /*Date today = new Date();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Por favor ingrese el ID del pais");
         int cID = Integer.parseInt(br.readLine());
@@ -57,10 +64,35 @@ public class Main {
 
         System.out.println(N.toString());
 
+        /*Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR)+10);
+        */
+
+        /*List<Weather> we = new ArrayList<>();       //Lista genérica
+
+
         for(int i = 0; i < 10; ++i) {
-            System.out.println("Date: " + LocalDateTime.from(today.toInstant()).plusDays((long)i) + "\nMin: " +
-                    wMinTemp + i + "Max: " + wMaxTemp + i + "\nDescription: " + wDesc + "\n");
+            Weather weather;
+            if(i == 0) {
+               weather = new Weather(wTemp, wMaxTemp, wMinTemp, wDesc, wWSpe, wWDir, wAHum,wAPress,wAVisibility);
+               System.out.println(weather.toString());
+            }
+            else
+            {
+                weather = new Weather(wMaxTemp, wMinTemp, wDesc);
+                System.out.println(weather.shortToString());
+            }
+            we.add(weather);
         }
+        /*for(Weather w:we){
+            System.out.println(w.toString());
+        }
+        System.out.println(we.size());*/
+        DB_Connect db = new DB_Connect();
+        db.TryConn();
+
+
 
     }
 }

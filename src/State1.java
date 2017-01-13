@@ -67,6 +67,6 @@ public class State1{
 
     public String toString() {
         return this.X.toString() + "\n" +"Name: " + this.name + "\nShort: " + this.abbr + "\nLargest City: " +
-                this.largest_city + "\nCapital: " + "\n" + this.capital+ this.Today.toString();
+                this.largest_city + "\nCapital: " + this.capital + "\n" + this.Today.toString();
     }
 }
