@@ -1,26 +1,34 @@
 package Domain; /**
  * Created by Usuario on 12/01/2017.
  */
-import java.util.Date;
 
+//Todo change the name of the propertys to the one matching the JSON
 public class Weather {
-    private Date today = new Date();
-    private int temperature = 0;
+    private String today = "";
+    private int temp = 0;
     private int maxTemperature = 0;
     private int minTemperature = 0;
     private String description = "";
-    private int wSpeed = 0;
-    private String wDirection = "";
-    private int aHumidity = 0;
-    private int aPressure = 0;
-    private String aVisibility = "";
+    private int speed = 0;
+    private String direction = "";
+    private int humidity = 0;
+    private float pressure = 0f;
+    private String text = "";
 
-    public int getTemperature() {
-        return this.temperature;
+    public String getToday() {
+        return today;
     }
 
-    public void setTemperature(int temperature) {
-        this.temperature = temperature;
+    public void setToday(String today) {
+        this.today = today;
+    }
+
+    public int getTemp() {
+        return this.temp;
+    }
+
+    public void setTemp(int temp) {
+        this.temp = temp;
     }
 
     public int getMaxTemperature() {
@@ -47,56 +55,57 @@ public class Weather {
         this.description = description;
     }
 
-    public int getwSpeed() {
-        return this.wSpeed;
+    public int getSpeed() {
+        return this.speed;
     }
 
-    public void setwSpeed(int wSpeed) {
-        this.wSpeed = wSpeed;
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
-    public String getwDirection() {
-        return this.wDirection;
+    public String getDirection() {
+        return this.direction;
     }
 
-    public void setwDirection(String wDirection) {
-        this.wDirection = wDirection;
+    public void setDirection(String direction) {
+        this.direction = direction;
     }
 
     public int getaHumidity() {
-        return this.aHumidity;
+        return this.humidity;
     }
 
     public void setaHumidity(int aHumidity) {
-        this.aHumidity = aHumidity;
+        this.humidity = aHumidity;
     }
 
-    public int getaPressure() {
-        return this.aPressure;
+    public float getPressure() {return this.pressure;}
+
+    public void setPressure(int pressure) {
+        this.pressure = pressure;
     }
 
-    public void setaPressure(int aPressure) {
-        this.aPressure = aPressure;
+    public String getText() {
+        return this.text;
     }
 
-    public String getaVisibility() {
-        return this.aVisibility;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public void setaVisibility(String aVisibility) {
-        this.aVisibility = aVisibility;
-    }
+    public Weather(){
 
+    }
     public Weather(int Temp, int maxTemp, int minTemp, String desc, int wSpe, String wDir, int aHum, int aPres, String aVis) {
-        this.temperature = Temp;
+        this.temp = Temp;
         this.maxTemperature = maxTemp;
         this.minTemperature = minTemp;
         this.description = desc;
-        this.wSpeed = wSpe;
-        this.wDirection = wDir;
-        this.aHumidity = aHum;
-        this.aPressure = aPres;
-        this.aVisibility = aVis;
+        this.speed = wSpe;
+        this.direction = wDir;
+        this.humidity = aHum;
+        this.pressure = aPres;
+        this.text = aVis;
     }
 
     public Weather(int maxTemp, int minTemp, String desc) {
@@ -106,7 +115,7 @@ public class Weather {
     }
 
     public String toString() {
-        return "Temperature: " + this.temperature + "\nMin and Max: " + this.minTemperature + " " + this.maxTemperature + "\nDescription: " + this.description + "\nWind Speed: " + this.wSpeed + "\nWind Direction: " + this.wDirection + "\nHumidity: " + this.aHumidity + "\nAtmospheric Pressure: " + this.aPressure + "\nVisibility: " + this.aVisibility;
+        return "Temperature: " + this.temp + "\nMin and Max: " + this.minTemperature + " " + this.maxTemperature + "\nDescription: " + this.description + "\nWind Speed: " + this.speed + "\nWind Direction: " + this.direction + "\nHumidity: " + this.humidity + "\nAtmospheric Pressure: " + this.pressure + "\nVisibility: " + this.text;
     }
 
     public String shortToString(){

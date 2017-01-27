@@ -5,6 +5,7 @@ package Domain;
  */
 public class State {
 
+    private String today;
     private Country X;
     private Weather Today;
     private Weather _10Days;
@@ -13,6 +14,14 @@ public class State {
     private int area = 0;
     private String largest_city = "";
     private String capital = "";
+
+    public String getToday() {
+        return today;
+    }
+
+    public void setToday(String today) {
+        this.today = today;
+    }
 
     public String getName() {
         return this.name;
@@ -54,7 +63,7 @@ public class State {
         this.capital = capital;
     }
 
-    public State(int cID, String cName, String cAlpha2, String cAlpha3, int wTemp, int wMaxTemp, int wMinTemp,
+    public State(String date, int cID, String cName, String cAlpha2, String cAlpha3, int wTemp, int wMaxTemp, int wMinTemp,
                  String wDesc, int wWSpe, String wWDir, int wAHum, int wAPress, String wAVisibility,
                  String sName, String sAbbr, int sArea, String sLargest_city, String sCapital) {
         this.X = new Country(cID, cName, cAlpha2, cAlpha3);
@@ -65,6 +74,7 @@ public class State {
         this.area = sArea;
         this.largest_city = sLargest_city;
         this.capital = sCapital;
+        this.today = date;
     }
 
     public State(String sName, String sAbbr, int sArea, String sLargestCity, String sCapital){

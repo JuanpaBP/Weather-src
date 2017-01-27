@@ -11,7 +11,7 @@ public class testWeather {
     @Test
     public void testWeatherTemp(){
         Weather w  = new Weather(20, 23, 18, "Soleado", 17, "Norte", 19, 15, "Alta");
-        assertEquals(20, w.getTemperature());
+        assertEquals(20, w.getTemp());
     }
 
     @Test
@@ -35,13 +35,13 @@ public class testWeather {
     @Test
     public void testWeatherWSpeed(){
         Weather w  = new Weather(20, 23, 18, "Soleado", 17, "Norte", 19, 15, "Alta");
-        assertEquals(17, w.getwSpeed());
+        assertEquals(17, w.getSpeed());
     }
 
     @Test
     public void testWeatherWDirection(){
         Weather w  = new Weather(20, 23, 18, "Soleado", 17, "Norte", 19, 15, "Alta");
-        assertEquals("Norte", w.getwDirection());
+        assertEquals("Norte", w.getDirection());
     }
 
     @Test
@@ -53,12 +53,12 @@ public class testWeather {
     @Test
     public void testWeatherAPressure(){
         Weather w  = new Weather(20, 23, 18, "Soleado", 17, "Norte", 19, 15, "Alta");
-        assertEquals(15, w.getaPressure());
+        assertEquals(15, w.getPressure());
     }
 
     @Test
     public void testWeatherAVisibility(){
         Weather w  = new Weather(20, 23, 18, "Soleado", 17, "Norte", 19, 15, "Alta");
-        assertEquals("Alta", w.getaVisibility());
+        assertEquals("Alta", w.getText());
     }
 }

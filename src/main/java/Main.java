@@ -2,19 +2,16 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import Domain.State;
 import Domain.Weather;
-import Persistency.*;
-import com.google.gson.Gson;
-import org.json.JSONObject;
-import org.json.JSONTokener;
+import DataAccess.*;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import sun.misc.IOUtils;
 
 
 public class Main {
@@ -23,20 +20,15 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        PersistCountry CountryA = (PersistCountry) context.getBean("springPersistencyCountry");
-        PersistState StateA = (PersistState) context.getBean("springPersistencyState");
-        PersistWeather WeatherA = (PersistWeather) context.getBean("springPersistencyWeather");
+        ApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/beans.xml");
+        DAOCountry CountryA = (DAOCountry) context.getBean("springPersistencyCountry");
+        DAOState StateA = (DAOState) context.getBean("springPersistencyState");
+        DAOWeather WeatherA = (DAOWeather) context.getBean("springPersistencyWeather");
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        Date today = Calendar.getInstance().getTime();
+        String reportDate = df.format(today);
 
-        //PersistCountry persistC = new PersistCountry();
-        //PersistState persistS = new PersistState();
-        //PersistWeather persistW = new PersistWeather();
-        /*URL url = new URL("http://services.groupkt.com/country/get/all");
-        InputStreamReader reader = new InputStreamReader(url.openStream());
-        JsonHandler JH = new Gson().fromJson(reader, JsonHandler.class);
-        System.out.println(JH.results);*/
 
-        Date today = new Date();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Por favor ingrese el ID del pais");
         int cID = Integer.parseInt(br.readLine());
@@ -76,12 +68,12 @@ public class Main {
         int wAPress = Integer.parseInt(br.readLine());
         System.out.println("Ingrese la Visibilidad actual");
         String wAVisibility = br.readLine();
-        State N = new State(cID, cName, cAlpha2, cAlpha3, wTemp, wMaxTemp, wMinTemp, wDesc, wWSpe, wWDir, wAHum,
+        State N = new State(reportDate ,cID, cName, cAlpha2, cAlpha3, wTemp, wMaxTemp, wMinTemp, wDesc, wWSpe, wWDir, wAHum,
             wAPress, wAVisibility, sName, sAbbr, sArea, sLargest_city, sCapital);
 
-        new Weather(wMaxTemp, wMinTemp, wDesc);
+        //new Weather(wMaxTemp, wMinTemp, wDesc);
 
-        System.out.println(N.toString());
+        //System.out.println(N.toString());
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
@@ -109,9 +101,10 @@ public class Main {
         System.out.println(we.size());
 
         //These are the things that do the inserts on the DB
-        CountryA.insertCountry(cID, cName,cAlpha3,context);
-        StateA.insertState(cID,sName,sAbbr,sArea, sLargest_city, sCapital,context);
-        WeatherA.insertWeather(wTemp,wMaxTemp,wMinTemp,wDesc,wWSpe,wWDir,wAHum,wAPress,wAVisibility,context);
+        //CountryA.insertCountry(cID, cName,cAlpha3,context);
+        //WeatherA.insertWeather(reportDate, wTemp,wMaxTemp,wMinTemp,wDesc,wWSpe,wWDir,wAHum,wAPress,wAVisibility,context);
+        //StateA.insertState(cID,sName,sAbbr,sArea, sLargest_city, sCapital,context);
+
 
 
         }
