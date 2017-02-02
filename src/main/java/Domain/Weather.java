@@ -5,9 +5,9 @@ package Domain; /**
 //Todo change the name of the propertys to the one matching the JSON
 public class Weather {
     private String today = "";
-    private int temp = 0;
-    private int maxTemperature = 0;
-    private int minTemperature = 0;
+    private float temp = 0;
+    private float maxTemperature = 0;
+    private float minTemperature = 0;
     private String description = "";
     private int speed = 0;
     private String direction = "";
@@ -23,27 +23,27 @@ public class Weather {
         this.today = today;
     }
 
-    public int getTemp() {
+    public float getTemp() {
         return this.temp;
     }
 
-    public void setTemp(int temp) {
+    public void setTemp(float temp) {
         this.temp = temp;
     }
 
-    public int getMaxTemperature() {
+    public float getMaxTemperature() {
         return this.maxTemperature;
     }
 
-    public void setMaxTemperature(int maxTemperature) {
+    public void setMaxTemperature(float maxTemperature) {
         this.maxTemperature = maxTemperature;
     }
 
-    public int getMinTemperature() {
+    public float getMinTemperature() {
         return this.minTemperature;
     }
 
-    public void setMinTemperature(int minTemperature) {
+    public void setMinTemperature(float minTemperature) {
         this.minTemperature = minTemperature;
     }
 
@@ -96,7 +96,7 @@ public class Weather {
     public Weather(){
 
     }
-    public Weather(int Temp, int maxTemp, int minTemp, String desc, int wSpe, String wDir, int aHum, int aPres, String aVis) {
+    public Weather(float Temp, float maxTemp, float minTemp, String desc, int wSpe, String wDir, int aHum, int aPres, String aVis) {
         this.temp = Temp;
         this.maxTemperature = maxTemp;
         this.minTemperature = minTemp;
@@ -108,7 +108,7 @@ public class Weather {
         this.text = aVis;
     }
 
-    public Weather(int maxTemp, int minTemp, String desc) {
+    public Weather(float maxTemp, float minTemp, String desc) {
         this.maxTemperature = maxTemp;
         this.minTemperature = minTemp;
         this.description = desc;

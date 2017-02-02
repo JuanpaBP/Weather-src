@@ -10,6 +10,8 @@ import Domain.State;
 import Domain.Weather;
 import DataAccess.*;
 
+import Proxy.DaoProxys;
+import Resource.WeatherResource;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -24,12 +26,14 @@ public class Main {
         DAOCountry CountryA = (DAOCountry) context.getBean("springPersistencyCountry");
         DAOState StateA = (DAOState) context.getBean("springPersistencyState");
         DAOWeather WeatherA = (DAOWeather) context.getBean("springPersistencyWeather");
+        WeatherResource weatherResource = (WeatherResource) context.getBean("WeatherResource");
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         Date today = Calendar.getInstance().getTime();
         String reportDate = df.format(today);
 
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        /*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Por favor ingrese el ID del pais");
         int cID = Integer.parseInt(br.readLine());
         System.out.println("Ingrese el nombre");
@@ -69,13 +73,13 @@ public class Main {
         System.out.println("Ingrese la Visibilidad actual");
         String wAVisibility = br.readLine();
         State N = new State(reportDate ,cID, cName, cAlpha2, cAlpha3, wTemp, wMaxTemp, wMinTemp, wDesc, wWSpe, wWDir, wAHum,
-            wAPress, wAVisibility, sName, sAbbr, sArea, sLargest_city, sCapital);
+            wAPress, wAVisibility, sName, sAbbr, sArea, sLargest_city, sCapital);*/
 
         //new Weather(wMaxTemp, wMinTemp, wDesc);
 
         //System.out.println(N.toString());
 
-        Calendar cal = Calendar.getInstance();
+        /*Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         cal.set(Calendar.HOUR, cal.get(Calendar.HOUR)+10);
 
@@ -98,7 +102,7 @@ public class Main {
         for(Weather w:we){
             System.out.println(w.toString());
         }
-        System.out.println(we.size());
+        System.out.println(we.size());*/
 
         //These are the things that do the inserts on the DB
         //CountryA.insertCountry(cID, cName,cAlpha3,context);

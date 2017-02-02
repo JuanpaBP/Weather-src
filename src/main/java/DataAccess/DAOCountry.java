@@ -3,6 +3,8 @@ package DataAccess;
 
 import Configuration.DB_Connect;
 
+import Domain.Country;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
@@ -15,18 +17,17 @@ import java.sql.*;
 
 public class DAOCountry {
 
-
+@Autowired
+DB_Connect db_connect;
 
 @Bean
-    public void insertCountry(int cID, String cName, String cAlpha3, ApplicationContext context) {
-        DB_Connect db_connect = (DB_Connect) context.getBean("springDBConnection");
+    public void insertCountry(Country c) {
         Connection conn = db_connect.getConnection();
         try {
-            String querycountry = " insert into paises (idPais, Nombre, Alpha3)" + " values (?, ?, ?)";
+            String querycountry = " insert into paises (Nombre, Alpha3)" + " values (?, ?)";
             PreparedStatement preparedStmt = conn.prepareStatement(querycountry);
-            preparedStmt.setInt (1, cID );
-            preparedStmt.setString (2, cName);
-            preparedStmt.setString(3, cAlpha3);
+            preparedStmt.setString (1,c.getName());
+            preparedStmt.setString(2,c.getAlpha3());
 
             preparedStmt.execute();
 

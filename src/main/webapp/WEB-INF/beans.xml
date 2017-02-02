@@ -3,28 +3,39 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jaxrs="http://cxf.apache.org/jaxrs"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jaxrs-client="http://cxf.apache.org/jaxrs-client"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
        http://cxf.apache.org/jaxrs
-       http://cxf.apache.org/schemas/jaxrs.xsd">
+       http://cxf.apache.org/schemas/jaxrs.xsd
+       ">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
 
     <bean id="springDBConnection" class="Configuration.DB_Connect"/>
     <bean id="springPersistencyCountry" class="DataAccess.DAOCountry"/>
     <bean id="springPersistencyState" class="DataAccess.DAOState"/>
     <bean id="springPersistencyWeather" class="DataAccess.DAOWeather"/>
+    <bean id="springDaoProxy" class = "Proxy.DaoProxys"/>
+    <bean id="springWeatherResource" class = "Resource.WeatherResource"/>
     <bean class="org.springframework.web.context.support.ServletContextPropertyPlaceholderConfigurer"/>
     <!--Inicializa los beans al momento de levantar la app-->
     <bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer"/>
 
-    <jaxrs:server id="services" address="/">
-        <jaxrs:serviceBeans>
-            <bean class="Resource.WeatherResource"/>
-        </jaxrs:serviceBeans>
-        <jaxrs:providers>
-            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
-        </jaxrs:providers>
-    </jaxrs:server>
+    <jaxrs-client:client id="countries"
+                         serviceClass="Resource.WeatherInterface"
+                         address="http://services.groupkt.com"
+                         inheritHeaders="true">
+        <jaxrs-client:providers>
+            <bean class ="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+        </jaxrs-client:providers>
+        <jaxrs-client:headers>
+            <entry key="Accept" value="text/xml"/>
+        </jaxrs-client:headers>
+    </jaxrs-client:client>
 
 </beans>

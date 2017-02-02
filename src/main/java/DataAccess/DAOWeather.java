@@ -42,9 +42,9 @@ public class DAOWeather {
                     + "values (?, ?, ?, ?)";
             preparedStmt = conn.prepareStatement(queryTemp);
             preparedStmt.setString(1, w.getToday());
-            preparedStmt.setInt(2,w.getTemp());
-            preparedStmt.setInt(3,w.getMinTemperature());
-            preparedStmt.setInt(4,w.getMaxTemperature());
+            preparedStmt.setFloat(2,w.getTemp());
+            preparedStmt.setFloat(3,w.getMinTemperature());
+            preparedStmt.setFloat(4,w.getMaxTemperature());
 
             preparedStmt.execute();
 

@@ -8,7 +8,7 @@ public class State {
     private String today;
     private Country X;
     private Weather Today;
-    private Weather _10Days;
+    //private Weather _10Days;
     private String name = "";
     private String abbr = "";
     private int area = 0;
@@ -68,7 +68,7 @@ public class State {
                  String sName, String sAbbr, int sArea, String sLargest_city, String sCapital) {
         this.X = new Country(cID, cName, cAlpha2, cAlpha3);
         this.Today = new Weather(wTemp, wMaxTemp, wMinTemp, wDesc, wWSpe, wWDir, wAHum, wAPress, wAVisibility);
-        this._10Days = new Weather(wMaxTemp, wMinTemp, wDesc);
+        //this._10Days = new Weather(wMaxTemp, wMinTemp, wDesc);
         this.name = sName;
         this.abbr = sAbbr;
         this.area = sArea;
