@@ -1,6 +1,7 @@
 package Proxy;
 
 import Adapter.UnitConverter;
+import Converter.CountryArray;
 import Domain.Country;
 import Domain.Weather;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,7 +17,7 @@ import java.util.List;
  * Created by Usuario on 26/01/2017.
  */
 @Resource
-interface WeatherInterface{}
+interface CountryInterface{}
 
 @Component
 public class DaoProxys {
@@ -26,6 +27,7 @@ public class DaoProxys {
     public List<Country> getCountryFromJson()throws IOException{
         List<Country> countryList = new ArrayList();
         Country C = new Country();
+        CountryArray countryArray = CountryInterface.getCountryFromJson();
         return null;
 
         /*ObjectMapper mapper = new ObjectMapper();

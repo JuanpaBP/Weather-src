@@ -8,14 +8,14 @@ import java.util.List;
 /**
  * Created by Usuario on 01/02/2017.
  */
-public class JsonCountry {
-    private CountryArray C;
+public class CountryArray {
+    private List<Country> C = new ArrayList<Country>();
 
-    public CountryArray getC() {
+    public List<Country> getC() {
         return C;
     }
 
-    public void setC(CountryArray c) {
+    public void setC(List<Country> c) {
         C = c;
     }
 }

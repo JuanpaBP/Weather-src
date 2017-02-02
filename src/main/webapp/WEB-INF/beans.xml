@@ -27,7 +27,7 @@
     <bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer"/>
 
     <jaxrs-client:client id="countries"
-                         serviceClass="Resource.WeatherInterface"
+                         serviceClass="Proxy.WeatherInterface"
                          address="http://services.groupkt.com"
                          inheritHeaders="true">
         <jaxrs-client:providers>
